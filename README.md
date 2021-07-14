@@ -17,24 +17,26 @@ Example:
 
 Parameterizing a dataset allows for specific ranges of files to be transformed or copied into your output database or data warehouse depending on the variables that the developer creates. Pipeline activities search through the dataset and find files that match the parameters. This allows for outputs of categorical files to be stored together. The framework produces a stable and scalable pipeline for changing the input data into another data file type as well as copying the file for increased availability. If parameters did not exist then the developer would not be able to access the desired categorical, timeframe, filtered, and other types of data to input into the pipeline. Also, this allows for unique pipelines to be created to work with a single type of file to promote organization and easier bug detection.
  
-## What are the different supported file formats and compression codecs in Azure Data Factory? When will you use a Parquet file over an ORC file? Why would you choose
-## an AVRO file format over a Parquet file format 
+## What are the different supported file formats and compression codecs in Azure Data Factory? When will you use a Parquet file over an ORC file? Why would you choose an AVRO file format over a Parquet file format 
  
 The following file types of supported in Azure Data Factory.
-*Avro format
-*Binary format
-*Delimited text format
-*Excel format
-*JSON format
-*ORC format
-*Parquet format
-*XML format
+* Avro format
+* Binary format
+* Delimited text format
+* Excel format
+* JSON format
+* ORC format
+* Parquet format
+* XML format
 
 The file formats can be categorized as unstructured, semi-structured, and structured data.
-Unstructured                       |                   Semi Structured                     |                       Structured
 
-Text					                                              JSON                                                    Avro
-CSV					                                                XML						                                          ORC
-TCV											                                                                                            Parquet
+| Unstructured | Semi Structured | Structured |
+|--------------|:---------------:|-----------:|
+|    Text      |       JSON      |     Avro   |
+|    CSV       |       XML       |     ORC    |
+|    TCV       |                 |   Parquet  |
+
+
  
 A Parquet file will be used over an ORC file when multiple Hadoop tools will be utilized. ORC files are optimized for effective Hadoop read operations and support only Hive and Pig. Parquet supports many Hadoop tools such as Apache Spark. Apache Avro uses JSON for defining data types and is highly effective for write intensive operations. In the case of pulling in ad-hoc data from a sensor would require intensive amounts of writes on a non relational db or a data warehouse, thus Avro would be the recommended file type.
